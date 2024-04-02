@@ -196,14 +196,13 @@ class Course{
             for (int j = 0; j < courseStudentCount - i - 1; j++) {
                 double grade1 = courseStudents[j].getCourseGrade(courseName);
                 double grade2 = courseStudents[j + 1].getCourseGrade(courseName);
-                if(grade1 == -1 || grade2 == -1){
-                    if(grade1 == -1 && grade2 != -1){
+                if (grade1 == -1 || grade2 == -1) {
+                    if (grade1 == -1 && grade2 != -1) {
                         Student temp = courseStudents[j];
                         courseStudents[j] = courseStudents[j + 1];
                         courseStudents[j + 1] = temp;
                     }
-                }
-                else{
+                } else {
                     if (grade1 < grade2) {
                         Student temp = courseStudents[j];
                         courseStudents[j] = courseStudents[j + 1];
@@ -213,6 +212,11 @@ class Course{
 
             }
         }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(courseName + " Ranking");
         for (int i = 0; i < courseStudentCount; i++) {
             System.out.println("------------------------------------------------------------");
             System.out.println("Student Name: " + courseStudents[i].getStudentName());
@@ -220,6 +224,10 @@ class Course{
             System.out.println("Grade: " + courseStudents[i].getCourseGrade(courseName));
             System.out.println("------------------------------------------------------------");
         }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
     
     
@@ -519,5 +527,10 @@ public class Main {
         }
         semester1.listStudents();
         semester1.rankStudentsBasedOnGPA();
+        semester1.courses[0].rankStudent();
+        semester1.courses[1].rankStudent();
+        semester1.courses[2].rankStudent();
+        semester1.courses[3].rankStudent();
+        semester1.courses[4].rankStudent();
     }
 }
